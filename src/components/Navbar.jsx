@@ -62,7 +62,7 @@ export default function Navbar({ isDark, onToggleTheme }) {
             letterSpacing: "0.02em",
           }}
         >
-          himanshu<span style={{ color: "var(--accent)" }}>.dev</span>
+          himanshu<span style={{ color: "var(--accent)" }}> patil</span>
         </span>
       </NavLink>
 
@@ -73,7 +73,7 @@ export default function Navbar({ isDark, onToggleTheme }) {
           alignItems: "center",
           gap: 4,
         }}
-        className="hidden-mobile"
+        className="d-none d-md-flex"
       >
         {navLinks.map((link) => (
           <NavLink
@@ -120,7 +120,7 @@ export default function Navbar({ isDark, onToggleTheme }) {
       </nav>
 
       {/* Mobile: theme + hamburger */}
-      <div style={{ display: "flex", alignItems: "center", gap: 8 }} className="show-mobile">
+      <div style={{ display: "flex", alignItems: "center", gap: 8 }} className="d-flex d-md-none">
         <button
           onClick={onToggleTheme}
           aria-label="Toggle theme"
@@ -204,11 +204,6 @@ export default function Navbar({ isDark, onToggleTheme }) {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <style>{`
-        @media (min-width: 769px) { .show-mobile { display: none !important; } }
-        @media (max-width: 768px) { .hidden-mobile { display: none !important; } }
-      `}</style>
     </header>
   );
 }

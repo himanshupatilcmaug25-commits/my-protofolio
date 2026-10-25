@@ -2,7 +2,7 @@
 
 /* ─── Design Tokens ─────────────────────────────────────────────────────── */
 :root {
-  --bg-primary: #0F1B33;
+  --bg-primary: #130b23;
   --bg-secondary: #1B2F57;
   --bg-card: #162345;
   --accent: #F2B84B;
@@ -45,6 +45,9 @@ body.light-mode {
   --border-hover: rgba(242, 184, 75, 0.6);
 }
 
+
+/* scrollbar track matches the new look */
+body.light-mode ::-webkit-scrollbar-track { background: #E2EAFF; }
 /* ─── Scrollbar ─────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
@@ -219,8 +222,27 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 700; lin
 }
 
 /* ─── Mobile ────────────────────────────────────────────────────────────── */
-@media (max-width: 640px) {
+@media (max-width: 767.98px) {
   .section { padding: 56px 0; }
   .container { padding: 0 16px; }
   .section-title { font-size: 1.7rem; }
+  .section-subtitle { margin-bottom: 32px; font-size: 0.95rem; }
+
+  .home-hero {
+    min-height: auto !important;
+    padding: 96px 16px 88px !important;
+  }
+
+  .home-hero-actions > a {
+    flex: 1 1 160px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .btn-primary,
+  .btn-outline {
+    padding: 10px 16px;
+    font-size: 0.88rem;
+  }
 }

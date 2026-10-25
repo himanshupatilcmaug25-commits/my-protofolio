@@ -142,8 +142,9 @@ export default function ContactSection() {
                   noValidate
                   style={{ display: "flex", flexDirection: "column", gap: 20 }}
                 >
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                    <Field
+                  <div className="row g-3">
+                    <div className="col-12 col-md-6">
+                      <Field
                       label="Your Name"
                       name="name"
                       type="text"
@@ -151,8 +152,10 @@ export default function ContactSection() {
                       value={form.name}
                       onChange={handleChange}
                       error={errors.name}
-                    />
-                    <Field
+                      />
+                    </div>
+                    <div className="col-12 col-md-6">
+                      <Field
                       label="Your Email"
                       name="email"
                       type="email"
@@ -160,7 +163,8 @@ export default function ContactSection() {
                       value={form.email}
                       onChange={handleChange}
                       error={errors.email}
-                    />
+                      />
+                    </div>
                   </div>
                   <Field
                     label="Message"

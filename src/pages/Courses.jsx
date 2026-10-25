@@ -79,14 +79,7 @@ export default function Courses() {
             <FaAward style={{ color: "var(--accent)" }} /> Certifications
           </h2>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-              gap: 20,
-              marginBottom: 12,
-            }}
-          >
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-3">
             {certifications.map((cert, i) => (
               <motion.button
                 key={cert.id}
@@ -290,11 +283,7 @@ export default function Courses() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.22 }}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-                gap: 18,
-              }}
+              className="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-3"
             >
               {filteredModules.map((mod, i) => {
                 const Icon = moduleIcons[mod.icon] || MdCode;
@@ -304,9 +293,9 @@ export default function Courses() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: i * 0.04 }}
-                    className="card"
-                    style={{ padding: "20px" }}
+                    className="col"
                   >
+                    <div className="card h-100" style={{ padding: "20px" }}>
                     <div
                       style={{
                         width: 40,
@@ -347,12 +336,13 @@ export default function Courses() {
                         </span>
                       ))}
                     </div>
+                    </div>
                   </motion.div>
                 );
               })}
 
               {filteredModules.length === 0 && (
-                <div style={{ gridColumn: "1 / -1", textAlign: "center", padding: "48px 0", color: "var(--text-muted)" }}>
+                <div className="col-12" style={{ textAlign: "center", padding: "48px 0", color: "var(--text-muted)" }}>
                   <p style={{ fontSize: "1.5rem", marginBottom: 8 }}>🔍</p>
                   <p>No modules match "{search}". Try a different keyword.</p>
                 </div>

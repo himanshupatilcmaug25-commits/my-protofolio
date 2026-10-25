@@ -29,7 +29,7 @@ export default function Home() {
     <main>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section
-        className="grid-bg"
+        className="grid-bg home-hero"
         style={{
           minHeight: "100vh",
           display: "flex",
@@ -48,8 +48,8 @@ export default function Home() {
             top: "30%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 600,
-            height: 600,
+            width: "min(600px, 90vw)",
+            height: "min(600px, 90vw)",
             borderRadius: "50%",
             background: "radial-gradient(circle, rgba(242,184,75,0.06) 0%, transparent 70%)",
             pointerEvents: "none",
@@ -92,8 +92,8 @@ export default function Home() {
                 display: "none",
                 alignItems: "center",
                 justifyContent: "center",
-                width: "100%",
-                height: "100%",
+                width: "200%",
+                height: "200%",
                 fontSize: 48,
               }}
             >
@@ -153,7 +153,7 @@ export default function Home() {
           </div>
 
           {/* CTA Buttons */}
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+          <div className="home-hero-actions" style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <a href={profile.resumeUrl} download className="btn-primary">
               <FaDownload /> Download Resume
             </a>
@@ -233,15 +233,8 @@ export default function Home() {
       <FadeIn>
         <section className="section" style={{ background: "var(--bg-secondary)" }}>
           <div className="container">
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-                gap: 48,
-                alignItems: "center",
-              }}
-            >
-              <div>
+            <div className="row g-4 g-lg-5 align-items-center">
+              <div className="col-12 col-lg-6">
                 <p
                   style={{
                     fontFamily: "var(--font-mono)",
@@ -262,7 +255,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              <div className="col-12 col-lg-6 d-flex flex-column gap-3">
                 {profile.quickFacts.map((fact) => {
                   const Icon = quickFactIcons[fact.icon] || MdSchool;
                   return (
@@ -277,7 +270,7 @@ export default function Home() {
                           height: 44,
                           borderRadius: 10,
                           background: "var(--accent-glow)",
-                          border: "1px solid rgba(242,184,75,0.3)",
+                          border: "1px solid rgba(243, 184, 75, 0.3)",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -302,14 +295,11 @@ export default function Home() {
       <FadeIn>
         <section style={{ borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
           <div className="container">
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-              }}
-            >
+            <div className="row row-cols-2 row-cols-sm-4 g-0">
               {profile.stats.map((stat) => (
-                <StatCounter key={stat.label} value={stat.value} suffix={stat.suffix} label={stat.label} />
+                <div className="col" key={stat.label}>
+                  <StatCounter value={stat.value} suffix={stat.suffix} label={stat.label} />
+                </div>
               ))}
             </div>
           </div>
@@ -337,13 +327,7 @@ export default function Home() {
               Full-stack applications built during PG-DAC and beyond.
             </p>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-                gap: 24,
-              }}
-            >
+            <div className="row g-4">
               {projects.filter((p) => p.featured).map((project, i) => (
                 <motion.div
                   key={project.id}
@@ -351,9 +335,9 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.12 }}
-                  className="card"
-                  style={{ padding: "28px 24px", display: "flex", flexDirection: "column", gap: 16 }}
+                  className="col-12 col-md-6"
                 >
+                  <div className="card h-100" style={{ padding: "28px 24px", display: "flex", flexDirection: "column", gap: 16 }}>
                   {/* Project header */}
                   <div>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
@@ -416,6 +400,7 @@ export default function Home() {
                         <FaGithub />
                       </a>
                     )}
+                  </div>
                   </div>
                 </motion.div>
               ))}

@@ -15,7 +15,7 @@ export default function CertLightbox({ cert, onClose }) {
         style={{
           position: "fixed",
           inset: 0,
-          background: "rgba(7, 14, 28, 0.90)",
+          background: "rgba(11, 18, 36, 0.9)",
           backdropFilter: "blur(8px)",
           zIndex: 300,
           display: "flex",
